@@ -1,0 +1,6 @@
+## DATABASE CONFIG
+
+export DB_PASSWORD=123
+
+## JWT CONFIG
+export JWT_SECRET=ThisTokenIsSoSecret

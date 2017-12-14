@@ -1,0 +1,44 @@
+{
+  "name": "koa-boilerplate",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "gulloa",
+  "license": "MIT",
+  "dependencies": {
+    "babel-eslint": "^8.0.2",
+    "bcryptjs": "^2.4.3",
+    "eslint-config-prettier": "^2.7.0",
+    "eslint-plugin-prettier": "^2.3.1",
+    "jsonwebtoken": "^8.1.0",
+    "koa": "^2.4.1",
+    "koa-body": "^2.5.0",
+    "koa-jwt": "^3.2.2",
+    "koa-logger": "^3.1.0",
+    "koa-router": "^7.2.1",
+    "koa-session": "^5.5.0",
+    "nodemon": "^1.12.1",
+    "pg": "^7.4.0",
+    "prettier": "^1.8.1",
+    "sequelize": "^4.22.5"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "jest",
+    "lint": "eslint ./src index.js",
+    "lint:fix": "eslint --fix ./src index.js ./test",
+    "heroku-postbuild": "sequelize db:migrate"
+  },
+  "devDependencies": {
+    "eslint": "^4.10.0",
+    "jest": "^21.2.1",
+    "supertest": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=8.5.0",
+    "yarn": ">=1.0.1"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  }
+}
