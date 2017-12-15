@@ -13,7 +13,7 @@ router.post("auth", "/", async ctx => {
           id: user.id,
           email: user.email,
         },
-        process.env.JWT_SECRET,
+        process.env.JWT_SECRET || "thisissosecret",
         (err, tokenResult) => (err ? reject(err) : resolve(tokenResult))
       )
     })
