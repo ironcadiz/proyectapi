@@ -6,7 +6,7 @@ const router = new KoaRouter()
 /* Unauthorized Route */
 router.get("helloName", "/:name", ctx => {
   ctx.body = {
-    message: "Hello!",
+    message: "Hello! unauthenticated user.",
     name: ctx.params.name,
   }
 })

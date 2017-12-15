@@ -4,7 +4,7 @@ const router = new KoaRouter()
 
 router.get("index", "/", ctx => {
   ctx.body = {
-    message: "Hello World",
+    message: "Welcome to proyectapi",
   }
 })
 
