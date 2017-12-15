@@ -10,6 +10,7 @@ module.exports = (sequelize, DataTypes) => {
       classMethods: {
         associate: function(models) {
           Voluntary.belongsTo(models.user, { foreignKey: "userId" })
+          Voluntary.belongsTo(models.Community, { foreignKey: "communityId" })
         },
       },
     }
