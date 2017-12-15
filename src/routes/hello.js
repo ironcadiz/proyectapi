@@ -16,10 +16,11 @@ router.get("helloName", "/:name", ctx => {
   After using `auth`, must be signed in
 */
 router.use(auth)
-router.get("helloUser", "/", ctx => {
+router.get("helloUser", "/", async ctx => {
   ctx.body = {
     message: "Hello!",
     user: ctx.state.currentUser,
+    voluntary: await ctx.state.currentUser.getVoluntaries()[0],
   }
 })
 
