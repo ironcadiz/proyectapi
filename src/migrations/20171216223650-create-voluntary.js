@@ -23,7 +23,7 @@ module.exports = {
       },
       communityId: {
         type: Sequelize.INTEGER,
-        references: { model: "Community", key: "id" },
+        references: { model: "Communities", key: "id" },
         allowNull: true,
       },
       createdAt: {

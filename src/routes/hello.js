@@ -17,8 +17,9 @@ router.get("helloName", "/:name", ctx => {
 */
 router.use(auth)
 router.get("helloUser", "/", async ctx => {
-  const voluntary = await ctx.state.currentUser.getVoluntaries()[0]
-  const community = voluntary.getCommunity()
+  const voluntaries = await ctx.state.currentUser.getVoluntaries()
+  const voluntary = voluntaries[0]
+  const community = await voluntary.getCommunity()
   ctx.body = {
     message: "Hello!",
     user: ctx.state.currentUser,
