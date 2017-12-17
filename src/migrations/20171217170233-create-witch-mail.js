@@ -10,6 +10,15 @@ module.exports = {
       },
       content: {
         type: Sequelize.STRING,
+        allowNull: false,
+      },
+      seen: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+      },
+      sent: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
       },
       senderId: {
         type: Sequelize.INTEGER,

@@ -10,6 +10,11 @@ module.exports = {
           createdAt: new Date(),
           updatedAt: new Date(),
         },
+        {
+          name: "Constantué",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
       ],
       {}
     )
