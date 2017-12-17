@@ -1,17 +1,17 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var Manual = sequelize.define(
-    'Manual',
+  var Section = sequelize.define(
+    'Section',
     {
       name: DataTypes.STRING,
     },
     {
       classMethods: {
         associate: function(models) {
-          Manual.hasMany(models.Section, { foreignKey: "manualId" })
+          Section.belongsTo(models.Manual, { foreignKey: "manualId" })
         },
       },
     }
   )
-  return Manual
+  return Section
 }
