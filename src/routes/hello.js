@@ -16,10 +16,15 @@ router.get("helloName", "/:name", ctx => {
   After using `auth`, must be signed in
 */
 router.use(auth)
-router.get("helloUser", "/", ctx => {
+router.get("helloUser", "/", async ctx => {
+  const voluntaries = await ctx.state.currentUser.getVoluntaries()
+  const voluntary = voluntaries[0]
+  const community = await voluntary.getCommunity()
   ctx.body = {
     message: "Hello!",
     user: ctx.state.currentUser,
+    voluntary,
+    community,
   }
 })
 
