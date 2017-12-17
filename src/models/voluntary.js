@@ -5,6 +5,14 @@ module.exports = (sequelize, DataTypes) => {
     {
       name: DataTypes.STRING,
       sex: DataTypes.STRING,
+      userId: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+      },
+      communityId: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+      },
     },
     {
       classMethods: {
