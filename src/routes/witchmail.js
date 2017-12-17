@@ -20,8 +20,20 @@ router.post("witchmail", "/", async ctx => {
   ctx.body = wm
 })
 
-// TODO: Implement this after version and roles are implemented.
-// router.get("community", "/:version_id", async ctx => {
-// })
+router.get("witchmail", "/", async ctx => {
+  const voluntaries = await ctx.state.currentUser.getVoluntaries()
+  const voluntary = voluntaries[0]
+  const community = await voluntary.getCommunity()
+  let witchMail = await community.getWitchMails({ where: { sent: false } })
+  ctx.orm.WitchMail.update({ sent: true }, {where: { sent:false, recipientId: community.id } })
+  ctx.response.status = 200
+  ctx.body = witchMail
+})
+
+router.put("witchmail", "/:id", async ctx => {
+  await ctx.orm.WitchMail.update({ seen: true }, {where: { id: ctx.params.id } })
+  ctx.response.status = 200
+  ctx.body = "Success!"
+})
 
 module.exports = router
