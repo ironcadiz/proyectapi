@@ -9,6 +9,7 @@ module.exports = (sequelize, DataTypes) => {
       classMethods: {
         associate: function(models) {
           Section.belongsTo(models.Manual, { foreignKey: "manualId" })
+          Section.hasMany(models.Report, { foreignKey: "sectionId" })
         },
       },
     }
