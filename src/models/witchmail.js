@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   var WitchMail = sequelize.define(
     'WitchMail',
     {
-      content: DataTypes.STRING,
+      content: DataTypes.TEXT,
       seen: {
         type: DataTypes.BOOLEAN,
         allowNull: false,

@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('WitchMails', {
+    return queryInterface.createTable('Reports', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -10,24 +10,15 @@ module.exports = {
       },
       content: {
         type: Sequelize.TEXT,
-        allowNull: false,
       },
-      seen: {
-        type: Sequelize.BOOLEAN,
-        allowNull: false,
-      },
-      sent: {
-        type: Sequelize.BOOLEAN,
-        allowNull: false,
-      },
-      senderId: {
+      manualId: {
         type: Sequelize.INTEGER,
-        references: { model: "Communities", key: "id" },
+        references: { model: "Manuals", key: "id" },
         allowNull: false,
       },
-      recipientId: {
+      sectionId: {
         type: Sequelize.INTEGER,
-        references: { model: "Communities", key: "id" },
+        references: { model: "Sections", key: "id" },
         allowNull: false,
       },
       createdAt: {
@@ -41,6 +32,6 @@ module.exports = {
     })
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('WitchMails')
+    return queryInterface.dropTable('Reports')
   },
 }
