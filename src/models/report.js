@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   var Report = sequelize.define(
     'Report',
     {
-      content: DataTypes.STRING,
+      content: DataTypes.TEXT,
       manualId: {
         type: DataTypes.INTEGER,
         allowNull: false,

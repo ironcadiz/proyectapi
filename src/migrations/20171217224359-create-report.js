@@ -9,7 +9,7 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       content: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
       },
       manualId: {
         type: Sequelize.INTEGER,
@@ -32,6 +32,6 @@ module.exports = {
     })
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Reports');
+    return queryInterface.dropTable('Reports')
   },
 }

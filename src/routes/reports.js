@@ -18,6 +18,15 @@ router.get("sections", "/sections/:manualId", async ctx => {
   }
 })
 
-// router.post("reports", "/")
+router.post("reports", "/", async ctx => {
+  const { manualId, sectionId, content } = ctx.request.body
+  await ctx.orm.Report.build({
+    manualId,
+    sectionId,
+    content,
+  }).save()
+  ctx.response.status = 201
+  ctx.body = "Success!"
+})
 
 module.exports = router
