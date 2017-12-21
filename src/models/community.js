@@ -10,6 +10,7 @@ module.exports = (sequelize, DataTypes) => {
         associate: function(models) {
           Community.hasMany(models.Voluntary, { foreignKey: "communityId" })
           Community.hasMany(models.WitchMail, { foreignKey: "recipientId" })
+          Community.hasMany(models.Event, { foreignKey: "communityId" })
         },
       },
     }
