@@ -17,7 +17,9 @@ router.post("auth", "/", async ctx => {
         (err, tokenResult) => (err ? reject(err) : resolve(tokenResult))
       )
     })
-    ctx.body = { token }
+    const voluntaries = await user.getVoluntaries()
+    const voluntary = voluntaries[0]
+    ctx.body = { token, user, voluntary }
   } else {
     ctx.throw(401, "Wrong e-mail or password")
   }
