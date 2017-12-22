@@ -39,6 +39,7 @@ router.get("event", "/all", async ctx => {
   }
 })
 
+
 router.get("event", "/date/:date", async ctx => {
   const events = await ctx.orm.Event.findAll({ where: { start: { $between: [new Date(ctx.params.date), new Date(`${ctx.params.date}T23:59:59.99`)] } } })
   ctx.response.status = 200
