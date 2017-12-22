@@ -28,6 +28,18 @@ router.get("event", "/", async ctx => {
   ctx.body = { events }
 })
 
+router.get("event", "/all", async ctx => {
+  if (ctx.state.currentUser.isAdmin) {
+    let events = await ctx.orm.Event.findAll()
+    ctx.response.status = 200
+    ctx.body = { events }
+  } else {
+    ctx.response.status = 401
+    ctx.body = "Unauthorized!"
+  }
+})
+
+
 router.get("event", "/date/:date", async ctx => {
   const events = await ctx.orm.Event.findAll({ where: { start: { $between: [new Date(ctx.params.date), new Date(`${ctx.params.date}T23:59:59.99`)] } } })
   ctx.response.status = 200
