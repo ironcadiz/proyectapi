@@ -22,10 +22,15 @@ router.post("event", "/", async ctx => {
 router.get("event", "/", async ctx => {
   const voluntaries = await ctx.state.currentUser.getVoluntaries()
   const voluntary = voluntaries[0]
-  const community = await voluntary.getCommunity()
-  let events = await community.getEvents()
-  ctx.response.status = 200
-  ctx.body = { events }
+  if (voluntary) {
+    const community = await voluntary.getCommunity()
+    let events = await community.getEvents()
+    ctx.response.status = 200
+    ctx.body = { events }
+  } else {
+    ctx.body = "user has no associated voluntary"
+    ctx.status = 422
+  }
 })
 
 router.get("event", "/all", async ctx => {
