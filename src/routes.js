@@ -9,6 +9,7 @@ const community = require("./routes/community")
 const witchmail = require("./routes/witchmail")
 const reports = require("./routes/reports")
 const events = require("./routes/event")
+const batch = require("./routes/batch")
 
 router.use("/auth", auth.routes())
 
@@ -19,5 +20,6 @@ router.use("/communities", community.routes())
 router.use("/witchmail", witchmail.routes())
 router.use("/reports", reports.routes())
 router.use("/event", events.routes())
+router.use("/batch", batch.routes())
 
 module.exports = router
