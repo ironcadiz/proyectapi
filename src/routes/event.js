@@ -67,6 +67,17 @@ router.get("event", "/all", async ctx => {
     ctx.response.status = 200
     ctx.body = { events }
   } else {
+    ctx.response.status = 401
+    ctx.body = "Unauthorized!"
+  }
+})
+
+router.get("event", "/all", async ctx => {
+  if (ctx.state.currentUser.isAdmin) {
+    let events = await ctx.orm.Event.findAll()
+    ctx.response.status = 200
+    ctx.body = { events }
+  } else {
     ctx.body = "user isnt admin"
     ctx.status = 401
   }
