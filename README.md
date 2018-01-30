@@ -1,7 +1,9 @@
-# Koa API Boilerplate (MC)
+# Proyectapp API
 
-[![circleciB]][circleciL]
 [![styleB]][styleL]
+
+This is the API for [proyectapp](https://github.com/gsulloa/proyectapp), 
+ developed from [Create Koa API](https://github.com/gsulloa/create-koa-api). 
 
 
 ## Requirements
@@ -9,50 +11,46 @@
 - Yarn >=1.0.1
 - Postgres
 
-## Install
+## Setup
 
-Setup your database
-```sh
-$ sudo su postgres
-$ createdb databaseName
-$ exit
-```
-Also you may change the name of database in `config/database.js`
+Assuming you have already created the postgres db and cloned the repo.
 
-Clone this repo
-```sh
-$ git clone git@github.com:gsulloa/koa-boilerplate.git project
-$ cd project
-```
+Create a .envrc file in the repo root to fill the env variables:
 
-Setup your env vars
-```sh
-$ export DB_PASSWORD=securepassword
 ```
-Alternatively with direnv
-```sh
-$ cp .envrc.example .envrc
-$ nano .envrc
-# modify the env var with your data
+export DB_PASSWORD=somepassword
+export DB_USERNAME=somedbuser
+export DB_DIALECT=postgres
+export DB_NAME=somedb
+export DB_HOST=someip
+```
+then do
+
+```bash
+source .envrc
+```
+Or use direnv.
+
+Then install the app:
+
+```bash
+$ yarn install
+```
+Create db and run migrations:
+
+```bash
+yarn run db:create
+yarn run db:migrate
+yarn run db:seed
 ```
 
 Start your server and code!
-```sh
-$ yarn dev
+```bash
+yarn dev
 ```
 
-## Using default Auth
-
-Implemented authentication use JWT.
-To get it
-```sh
-$ git pull origin auth
-```
 
 <!-- Badges -->
-
-[circleciL]:https://circleci.com/gh/gsulloa/koa-boilerplate
-[circleciB]:https://circleci.com/gh/gsulloa/koa-boilerplate.svg?style=svg
 
 [styleL]:https://github.com/prettier/prettier
 [styleB]:https://img.shields.io/badge/code%20style-prettier-brightgreen.svg?style=flat
